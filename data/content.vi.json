@@ -1,0 +1,498 @@
+{
+  "metrics": [
+    [
+      "06+",
+      "Dự án theo tư duy production"
+    ],
+    [
+      "42+",
+      "REST endpoint đã thiết kế"
+    ],
+    [
+      "18",
+      "Công nghệ đã áp dụng"
+    ],
+    [
+      "99.9%",
+      "Mục tiêu độ ổn định"
+    ]
+  ],
+  "principles": [
+    [
+      "⌘",
+      "Kiến trúc trước tiên",
+      "Làm rõ ranh giới, luồng dữ liệu và tình huống lỗi trước khi triển khai."
+    ],
+    [
+      "{ }",
+      "Rõ ràng hơn phức tạp",
+      "Code dễ đọc và hợp đồng rõ ràng giúp đội ngũ phát triển an toàn."
+    ],
+    [
+      "⊘",
+      "Bảo mật mặc định",
+      "Xác thực, phân quyền và validation là đầu vào của thiết kế."
+    ],
+    [
+      "↗",
+      "Giá trị kinh doanh",
+      "Quyết định kỹ thuật cần gắn với kết quả sản phẩm hữu ích."
+    ],
+    [
+      "∞",
+      "Học liên tục",
+      "Đo lường, nhìn lại và biến mỗi lần xây dựng thành mô hình tư duy tốt hơn."
+    ]
+  ],
+  "skillCategories": [
+    "Tất cả",
+    "Ngôn ngữ",
+    "Framework",
+    "Dữ liệu",
+    "Cache",
+    "Hạ tầng",
+    "Bảo mật",
+    "Kiểm thử"
+  ],
+  "skills": [
+    [
+      "Java",
+      "JV",
+      "Ngôn ngữ",
+      "Nền tảng",
+      "OOP, collections, streams và kiến thức concurrency cơ bản."
+    ],
+    [
+      "Spring Boot",
+      "SB",
+      "Framework",
+      "Chính",
+      "Dịch vụ REST tách module với quy ước hướng production."
+    ],
+    [
+      "Spring Security",
+      "SS",
+      "Bảo mật",
+      "Áp dụng",
+      "JWT authentication, RBAC và pipeline request an toàn."
+    ],
+    [
+      "MySQL",
+      "MY",
+      "Dữ liệu",
+      "Chính",
+      "Thiết kế quan hệ, transaction và tối ưu truy vấn."
+    ],
+    [
+      "Hibernate / JPA",
+      "JP",
+      "Dữ liệu",
+      "Áp dụng",
+      "Mapping entity rõ ràng và pattern persistence hiệu quả."
+    ],
+    [
+      "Redis",
+      "RD",
+      "Cache",
+      "Áp dụng",
+      "Chiến lược cache-aside và dữ liệu phiên ngắn hạn."
+    ],
+    [
+      "Docker",
+      "DK",
+      "Hạ tầng",
+      "Áp dụng",
+      "Môi trường lặp lại được và đóng gói triển khai bằng container."
+    ],
+    [
+      "JUnit / Mockito",
+      "JT",
+      "Kiểm thử",
+      "Áp dụng",
+      "Unit test tập trung và cô lập hành vi service."
+    ],
+    [
+      "REST API",
+      "API",
+      "Framework",
+      "Nền tảng",
+      "Mô hình resource, versioning và lỗi nhất quán."
+    ],
+    [
+      "JWT / OAuth",
+      "AU",
+      "Bảo mật",
+      "Áp dụng",
+      "Định danh stateless với refresh-token rotation."
+    ],
+    [
+      "GitHub Actions",
+      "CI",
+      "Hạ tầng",
+      "Đang học",
+      "Tự động kiểm tra và quy trình delivery lặp lại được."
+    ],
+    [
+      "AWS",
+      "AWS",
+      "Hạ tầng",
+      "Đang học",
+      "Nền tảng triển khai cloud và managed services."
+    ]
+  ],
+  "projects": [
+    {
+      "id": "furama",
+      "name": "Furama Resort Platform",
+      "subtitle": "API đặt phòng và vận hành bảo mật cho mô hình hospitality nhiều dịch vụ.",
+      "problem": "Quy trình đặt phòng thường phân tán dữ liệu khách hàng, hợp đồng và tiện ích qua thao tác thủ công. Furama gom vòng đời này vào một nguồn dữ liệu nhất quán với ranh giới nghiệp vụ rõ ràng.",
+      "goal": "Cho nhân viên một nguồn sự thật đáng tin cậy và cung cấp API bảo mật có thể phục vụ nhiều ứng dụng client.",
+      "stack": [
+        "Java 17",
+        "Spring Boot",
+        "Spring Security",
+        "MySQL",
+        "Redis",
+        "Docker"
+      ],
+      "architecture": [
+        "Web Client",
+        "REST Gateway",
+        "JWT Security",
+        "Domain Services",
+        "JPA / Cache",
+        "MySQL"
+      ],
+      "metrics": [
+        [
+          "28",
+          "Endpoint"
+        ],
+        [
+          "6",
+          "Module lõi"
+        ],
+        [
+          "<120ms",
+          "Đọc từ cache"
+        ]
+      ],
+      "database": "Mô hình quan hệ tách khách hàng, tiện ích, hợp đồng và dịch vụ đi kèm. Foreign key bảo vệ quyền sở hữu, index hỗ trợ truy vấn theo ngày và trạng thái, transaction giữ booking nhất quán.",
+      "api": [
+        [
+          "POST",
+          "/api/v1/auth/login"
+        ],
+        [
+          "GET",
+          "/api/v1/facilities?type=&page="
+        ],
+        [
+          "POST",
+          "/api/v1/contracts"
+        ],
+        [
+          "PATCH",
+          "/api/v1/contracts/{id}/status"
+        ]
+      ],
+      "security": [
+        "JWT access token ngắn hạn và refresh token xoay vòng",
+        "Phân quyền ADMIN, MANAGER và STAFF",
+        "BCrypt cho mật khẩu và bean validation",
+        "Phản hồi 401/403 nhất quán, không lộ chi tiết nhạy cảm"
+      ],
+      "performance": [
+        "Redis cache-aside cho trạng thái phòng/tiện ích",
+        "Index database theo ngày đặt và trạng thái",
+        "Endpoint danh sách có phân trang",
+        "DTO projection để tránh tải entity không cần thiết"
+      ],
+      "lesson": "Khó nhất không phải là thêm endpoint, mà là đặt rule đặt phòng đúng nơi để mọi entry point đều giữ cùng một ràng buộc.",
+      "gallery": [
+        "assets/images/project-gallery/furama-dashboard.svg",
+        "assets/images/project-gallery/furama-booking-flow.svg",
+        "assets/images/project-gallery/furama-facility-search.svg",
+        "assets/images/project-gallery/furama-contracts.svg",
+        "assets/images/project-gallery/furama-security.svg",
+        "assets/images/project-gallery/furama-cache.svg"
+      ]
+    },
+    {
+      "id": "commerce",
+      "name": "Commerce Order Service",
+      "subtitle": "Workflow đơn hàng dạng module, tập trung vào nhất quán dữ liệu, phục hồi lỗi và mở rộng event-driven.",
+      "problem": "Đặt hàng chạm tới tồn kho, giá và thanh toán. Chuỗi request đơn giản dễ tạo cập nhật dang dở và khó hiểu khi lỗi xảy ra.",
+      "goal": "Bảo vệ tính nhất quán của đơn hàng bằng state transition rõ ràng, đồng thời giữ các module có thể thay thế khi traffic và nghiệp vụ tăng.",
+      "stack": [
+        "Java 17",
+        "Spring Boot",
+        "MySQL",
+        "Redis",
+        "Docker",
+        "JUnit"
+      ],
+      "architecture": [
+        "Storefront",
+        "Order API",
+        "Policy Layer",
+        "Order Service",
+        "Outbox",
+        "MySQL"
+      ],
+      "metrics": [
+        [
+          "9",
+          "Trạng thái đơn"
+        ],
+        [
+          "100%",
+          "Ghi idempotent"
+        ],
+        [
+          "34",
+          "Test"
+        ]
+      ],
+      "database": "Order và order item lưu snapshot giá bất biến. Optimistic locking bảo vệ cập nhật đồng thời, idempotency key chặn checkout trùng khi client retry.",
+      "api": [
+        [
+          "POST",
+          "/api/v1/orders"
+        ],
+        [
+          "GET",
+          "/api/v1/orders/{id}"
+        ],
+        [
+          "POST",
+          "/api/v1/orders/{id}/confirm"
+        ],
+        [
+          "POST",
+          "/api/v1/orders/{id}/cancel"
+        ]
+      ],
+      "security": [
+        "Kiểm tra quyền sở hữu của khách hàng đã đăng nhập",
+        "Hành động quản trị được bảo vệ bằng RBAC",
+        "State transition không hợp lệ bị từ chối",
+        "Idempotency token giảm rủi ro replay"
+      ],
+      "performance": [
+        "Read-through cache cho sản phẩm",
+        "Batch loading cho order item",
+        "Contract pagination sẵn sàng dùng cursor",
+        "Index riêng cho lịch sử đơn hàng theo khách"
+      ],
+      "lesson": "Mô hình hóa trạng thái đơn hàng rõ ràng biến các điều kiện rời rạc thành workflow có thể hiểu, test và mở rộng an toàn.",
+      "gallery": [
+        "assets/images/project-gallery/commerce-checkout.svg",
+        "assets/images/project-gallery/commerce-order-states.svg",
+        "assets/images/project-gallery/commerce-inventory.svg",
+        "assets/images/project-gallery/commerce-payment.svg",
+        "assets/images/project-gallery/commerce-outbox.svg",
+        "assets/images/project-gallery/commerce-tests.svg"
+      ]
+    },
+    {
+      "id": "taskflow",
+      "name": "TaskFlow Collaboration API",
+      "subtitle": "Backend workspace cho đội nhóm với phân quyền chi tiết và activity model có thể audit.",
+      "problem": "Công cụ cộng tác cần nhiều hơn CRUD. Thành viên, quyền hạn và lịch sử thay đổi phải đúng khi team và project phát triển.",
+      "goal": "Tạo lõi cộng tác dễ bảo trì, nơi authorization dễ dự đoán và mọi thay đổi quan trọng đều có dấu vết.",
+      "stack": [
+        "Spring Boot",
+        "Spring Security",
+        "MySQL",
+        "JPA",
+        "Docker",
+        "OpenAPI"
+      ],
+      "architecture": [
+        "SPA Client",
+        "API Layer",
+        "Access Policy",
+        "Workspace Core",
+        "Audit Service",
+        "MySQL"
+      ],
+      "metrics": [
+        [
+          "4",
+          "Vai trò truy cập"
+        ],
+        [
+          "100%",
+          "Ghi có audit"
+        ],
+        [
+          "v1",
+          "API ổn định"
+        ]
+      ],
+      "database": "Workspace membership được tách độc lập khỏi users và projects. Audit event là append-only, unique constraint chặn bản ghi thành viên trùng.",
+      "api": [
+        [
+          "POST",
+          "/api/v1/workspaces"
+        ],
+        [
+          "POST",
+          "/api/v1/workspaces/{id}/members"
+        ],
+        [
+          "GET",
+          "/api/v1/projects/{id}/tasks"
+        ],
+        [
+          "PATCH",
+          "/api/v1/tasks/{id}"
+        ]
+      ],
+      "security": [
+        "Policy theo cấp workspace",
+        "Vai trò OWNER, ADMIN, MEMBER và VIEWER",
+        "Xác minh quyền sở hữu resource ở service boundary",
+        "Audit event append-only cho thao tác nhạy cảm"
+      ],
+      "performance": [
+        "Index cho lookup membership theo workspace",
+        "Task và activity feed có phân trang",
+        "DTO mapping chọn lọc",
+        "Kiểm tra query plan cho dashboard phổ biến"
+      ],
+      "lesson": "Authorization dễ tin cậy nhất khi được diễn đạt bằng một nhóm policy tái sử dụng, thay vì rải rác trong controller.",
+      "gallery": [
+        "assets/images/project-gallery/taskflow-workspace.svg",
+        "assets/images/project-gallery/taskflow-board.svg",
+        "assets/images/project-gallery/taskflow-members.svg",
+        "assets/images/project-gallery/taskflow-audit.svg",
+        "assets/images/project-gallery/taskflow-policy.svg",
+        "assets/images/project-gallery/taskflow-openapi.svg"
+      ]
+    }
+  ],
+  "timeline": [
+    [
+      "2021",
+      "Chương mới tại Nhật Bản",
+      "Thích nghi với môi trường mới và rèn luyện kỷ luật, sự kiên nhẫn, thói quen giao tiếp hiện đang định hình cách làm kỹ thuật của tôi.",
+      [
+        "Thích nghi",
+        "Tiếng Nhật"
+      ]
+    ],
+    [
+      "2022",
+      "Nền tảng lập trình",
+      "Bắt đầu với thuật toán và lập trình hướng đối tượng, học cách chia vấn đề mơ hồ thành phần nhỏ có thể kiểm thử.",
+      [
+        "Thuật toán",
+        "OOP",
+        "Git"
+      ]
+    ],
+    [
+      "2023",
+      "Java và dữ liệu quan hệ",
+      "Đi sâu hơn vào hệ sinh thái Java và học cách mô hình hóa thông tin nghiệp vụ bằng cơ sở dữ liệu quan hệ chuẩn hóa.",
+      [
+        "Java",
+        "MySQL",
+        "SQL"
+      ]
+    ],
+    [
+      "2024",
+      "Xây dựng với Spring",
+      "Chuyển từ chương trình độc lập sang web service nhiều lớp với REST contract, persistence và authentication.",
+      [
+        "Spring Boot",
+        "JPA",
+        "REST"
+      ]
+    ],
+    [
+      "2025",
+      "Kỹ thuật hướng production",
+      "Bổ sung caching, container, testing và security trong khi biến dự án thành case study kỹ thuật hoàn chỉnh.",
+      [
+        "Redis",
+        "Docker",
+        "Security"
+      ]
+    ],
+    [
+      "NOW",
+      "Tư duy hệ thống, sẵn sàng đi làm",
+      "Đang học sâu hơn về kiến trúc và trade-off vận hành, tìm kiếm đội backend nơi kỹ thuật cẩn thận tạo ra giá trị thật.",
+      [
+        "System Design",
+        "AWS",
+        "Teamwork"
+      ]
+    ]
+  ],
+  "knowledge": [
+    [
+      [
+        "furama",
+        "resort",
+        "booking",
+        "đặt phòng"
+      ],
+      "Furama là nền tảng đặt phòng và vận hành xây bằng Java, Spring Boot, MySQL và Redis. Trọng tâm kỹ thuật là giữ hợp đồng và trạng thái tiện ích nhất quán bằng service boundary và transaction rõ ràng."
+    ],
+    [
+      [
+        "security",
+        "authentication",
+        "jwt",
+        "authorization",
+        "bảo mật"
+      ],
+      "Linh xem bảo mật là một phần của kiến trúc: JWT ngắn hạn, refresh token xoay vòng, BCrypt, role-based policy, validation và phản hồi lỗi nhất quán."
+    ],
+    [
+      [
+        "database",
+        "mysql",
+        "data",
+        "index",
+        "dữ liệu"
+      ],
+      "Các dự án dùng mô hình MySQL chuẩn hóa, foreign key rõ ràng và transaction boundary. Index đi theo access pattern thật như ngày đặt, trạng thái và membership workspace."
+    ],
+    [
+      [
+        "technology",
+        "technologies",
+        "stack",
+        "skills",
+        "know",
+        "công nghệ"
+      ],
+      "Stack chính là Java, Spring Boot, Spring Security, MySQL, JPA và REST. Linh cũng áp dụng Redis, Docker, JUnit/Mockito và đang phát triển AWS cùng CI/CD."
+    ],
+    [
+      [
+        "performance",
+        "cache",
+        "fast",
+        "scale",
+        "hiệu năng"
+      ],
+      "Hiệu năng bắt đầu từ access pattern: pagination, index đúng mục đích, DTO projection, xem query plan và Redis cache-aside khi kiểm soát được độ stale."
+    ],
+    [
+      [
+        "about",
+        "linh",
+        "engineer",
+        "kỹ sư"
+      ],
+      "Phan Tuan Linh là backend-focused engineer xây hệ thống Java và Spring theo tư duy production. Cách làm ưu tiên kiến trúc rõ, code dễ bảo trì, bảo mật mặc định và giá trị kinh doanh."
+    ]
+  ]
+}

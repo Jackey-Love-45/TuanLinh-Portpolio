@@ -1,0 +1,492 @@
+{
+  "metrics": [
+    [
+      "06+",
+      "Production-minded projects"
+    ],
+    [
+      "42+",
+      "REST endpoints designed"
+    ],
+    [
+      "18",
+      "Technologies applied"
+    ],
+    [
+      "99.9%",
+      "Reliability target"
+    ]
+  ],
+  "principles": [
+    [
+      "⌘",
+      "Architecture first",
+      "Clarify boundaries, data flow and failure modes before implementation."
+    ],
+    [
+      "{ }",
+      "Clarity over cleverness",
+      "Readable code and explicit contracts keep teams moving safely."
+    ],
+    [
+      "⊘",
+      "Secure by default",
+      "Authentication, authorization and validation are design inputs."
+    ],
+    [
+      "↗",
+      "Business value",
+      "Engineering decisions should connect to a useful product outcome."
+    ],
+    [
+      "∞",
+      "Learn continuously",
+      "Measure, reflect and turn every build into a better mental model."
+    ]
+  ],
+  "skillCategories": [
+    "All",
+    "Languages",
+    "Frameworks",
+    "Persistence",
+    "Caching",
+    "Infrastructure",
+    "Security",
+    "Testing"
+  ],
+  "skills": [
+    [
+      "Java",
+      "JV",
+      "Languages",
+      "Core",
+      "OOP, collections, streams and concurrency fundamentals."
+    ],
+    [
+      "Spring Boot",
+      "SB",
+      "Frameworks",
+      "Primary",
+      "Modular REST services with production-minded conventions."
+    ],
+    [
+      "Spring Security",
+      "SS",
+      "Security",
+      "Applied",
+      "JWT authentication, RBAC and secure request pipelines."
+    ],
+    [
+      "MySQL",
+      "MY",
+      "Persistence",
+      "Primary",
+      "Relational modeling, transactions and query optimization."
+    ],
+    [
+      "Hibernate / JPA",
+      "JP",
+      "Persistence",
+      "Applied",
+      "Explicit entity mapping and efficient persistence patterns."
+    ],
+    [
+      "Redis",
+      "RD",
+      "Caching",
+      "Applied",
+      "Cache-aside strategies and short-lived session data."
+    ],
+    [
+      "Docker",
+      "DK",
+      "Infrastructure",
+      "Applied",
+      "Repeatable environments and containerized deployment."
+    ],
+    [
+      "JUnit / Mockito",
+      "JT",
+      "Testing",
+      "Applied",
+      "Focused unit tests and isolated service behavior."
+    ],
+    [
+      "REST API",
+      "API",
+      "Frameworks",
+      "Core",
+      "Resource modeling, versioning and predictable errors."
+    ],
+    [
+      "JWT / OAuth",
+      "AU",
+      "Security",
+      "Applied",
+      "Stateless identity with refresh-token rotation."
+    ],
+    [
+      "GitHub Actions",
+      "CI",
+      "Infrastructure",
+      "Learning",
+      "Automated checks and repeatable delivery pipelines."
+    ],
+    [
+      "AWS",
+      "AWS",
+      "Infrastructure",
+      "Learning",
+      "Cloud deployment fundamentals and managed services."
+    ]
+  ],
+  "projects": [
+    {
+      "id": "furama",
+      "name": "Furama Resort Platform",
+      "subtitle": "A secure reservation and operations API for a multi-service hospitality business.",
+      "problem": "Reservation workflows often fragment customer, contract and facility data across manual processes. Furama centralizes the lifecycle while preserving clear ownership and consistent business rules.",
+      "goal": "Provide staff with one reliable operational source of truth and expose secure APIs that can support multiple client applications.",
+      "stack": [
+        "Java 17",
+        "Spring Boot",
+        "Spring Security",
+        "MySQL",
+        "Redis",
+        "Docker"
+      ],
+      "architecture": [
+        "Web Client",
+        "REST Gateway",
+        "JWT Security",
+        "Domain Services",
+        "JPA / Cache",
+        "MySQL"
+      ],
+      "metrics": [
+        [
+          "28",
+          "Endpoints"
+        ],
+        [
+          "6",
+          "Core modules"
+        ],
+        [
+          "<120ms",
+          "Cached read"
+        ]
+      ],
+      "database": "The relational model separates customers, facilities, contracts and attached services. Foreign keys protect ownership, composite indexes support date and status queries, and transactional boundaries keep bookings consistent.",
+      "api": [
+        [
+          "POST",
+          "/api/v1/auth/login"
+        ],
+        [
+          "GET",
+          "/api/v1/facilities?type=&page="
+        ],
+        [
+          "POST",
+          "/api/v1/contracts"
+        ],
+        [
+          "PATCH",
+          "/api/v1/contracts/{id}/status"
+        ]
+      ],
+      "security": [
+        "Short-lived JWT access tokens and rotating refresh tokens",
+        "Role-based access for ADMIN, MANAGER and STAFF",
+        "BCrypt password hashing and bean validation",
+        "Consistent 401/403 responses without sensitive details"
+      ],
+      "performance": [
+        "Redis cache-aside for facility availability",
+        "Database indexes on booking date and status",
+        "Paginated collection endpoints",
+        "DTO projections to avoid unnecessary entity loading"
+      ],
+      "lesson": "The hardest part was not adding endpoints—it was deciding where reservation rules belonged so the same constraints held across every entry point.",
+      "gallery": [
+        "assets/images/project-gallery/furama-dashboard.svg",
+        "assets/images/project-gallery/furama-booking-flow.svg",
+        "assets/images/project-gallery/furama-facility-search.svg",
+        "assets/images/project-gallery/furama-contracts.svg",
+        "assets/images/project-gallery/furama-security.svg",
+        "assets/images/project-gallery/furama-cache.svg"
+      ]
+    },
+    {
+      "id": "commerce",
+      "name": "Commerce Order Service",
+      "subtitle": "A modular order workflow designed for consistency, failure recovery and future event-driven growth.",
+      "problem": "Order placement touches inventory, pricing and payment. A naïve request chain creates partial updates and makes failures difficult to understand.",
+      "goal": "Protect order consistency with explicit state transitions while keeping modules replaceable as traffic and business complexity grow.",
+      "stack": [
+        "Java 17",
+        "Spring Boot",
+        "MySQL",
+        "Redis",
+        "Docker",
+        "JUnit"
+      ],
+      "architecture": [
+        "Storefront",
+        "Order API",
+        "Policy Layer",
+        "Order Service",
+        "Outbox",
+        "MySQL"
+      ],
+      "metrics": [
+        [
+          "9",
+          "Order states"
+        ],
+        [
+          "100%",
+          "Idempotent writes"
+        ],
+        [
+          "34",
+          "Tests"
+        ]
+      ],
+      "database": "Orders and order items use immutable price snapshots. Optimistic locking guards concurrent updates, while idempotency keys prevent duplicate checkouts during client retries.",
+      "api": [
+        [
+          "POST",
+          "/api/v1/orders"
+        ],
+        [
+          "GET",
+          "/api/v1/orders/{id}"
+        ],
+        [
+          "POST",
+          "/api/v1/orders/{id}/confirm"
+        ],
+        [
+          "POST",
+          "/api/v1/orders/{id}/cancel"
+        ]
+      ],
+      "security": [
+        "Authenticated customer ownership checks",
+        "Administrative actions protected by RBAC",
+        "Validated state transitions reject invalid operations",
+        "Idempotency tokens reduce replay risk"
+      ],
+      "performance": [
+        "Read-through product cache",
+        "Batch loading for order items",
+        "Cursor-ready pagination contracts",
+        "Purpose-built indexes for customer order history"
+      ],
+      "lesson": "Modeling order states explicitly turned scattered conditionals into a workflow the team could reason about, test and safely extend.",
+      "gallery": [
+        "assets/images/project-gallery/commerce-checkout.svg",
+        "assets/images/project-gallery/commerce-order-states.svg",
+        "assets/images/project-gallery/commerce-inventory.svg",
+        "assets/images/project-gallery/commerce-payment.svg",
+        "assets/images/project-gallery/commerce-outbox.svg",
+        "assets/images/project-gallery/commerce-tests.svg"
+      ]
+    },
+    {
+      "id": "taskflow",
+      "name": "TaskFlow Collaboration API",
+      "subtitle": "A team workspace backend with granular access control and an auditable activity model.",
+      "problem": "Collaborative tools need more than CRUD. Membership, permissions and historical context must remain correct as teams and projects evolve.",
+      "goal": "Create a maintainable collaboration core where authorization is predictable and every meaningful change can be traced.",
+      "stack": [
+        "Spring Boot",
+        "Spring Security",
+        "MySQL",
+        "JPA",
+        "Docker",
+        "OpenAPI"
+      ],
+      "architecture": [
+        "SPA Client",
+        "API Layer",
+        "Access Policy",
+        "Workspace Core",
+        "Audit Service",
+        "MySQL"
+      ],
+      "metrics": [
+        [
+          "4",
+          "Access roles"
+        ],
+        [
+          "100%",
+          "Audited writes"
+        ],
+        [
+          "v1",
+          "Stable API"
+        ]
+      ],
+      "database": "Workspace membership is modeled independently from users and projects. Audit events are append-only, and unique constraints prevent duplicate membership records.",
+      "api": [
+        [
+          "POST",
+          "/api/v1/workspaces"
+        ],
+        [
+          "POST",
+          "/api/v1/workspaces/{id}/members"
+        ],
+        [
+          "GET",
+          "/api/v1/projects/{id}/tasks"
+        ],
+        [
+          "PATCH",
+          "/api/v1/tasks/{id}"
+        ]
+      ],
+      "security": [
+        "Workspace-level policy checks",
+        "OWNER, ADMIN, MEMBER and VIEWER roles",
+        "Resource ownership validated at service boundaries",
+        "Append-only audit events for sensitive operations"
+      ],
+      "performance": [
+        "Indexed workspace membership lookups",
+        "Paginated task and activity feeds",
+        "Selective DTO mapping",
+        "Query plans checked for common dashboards"
+      ],
+      "lesson": "Authorization is easiest to trust when expressed as a small set of reusable policies, rather than being scattered across controllers.",
+      "gallery": [
+        "assets/images/project-gallery/taskflow-workspace.svg",
+        "assets/images/project-gallery/taskflow-board.svg",
+        "assets/images/project-gallery/taskflow-members.svg",
+        "assets/images/project-gallery/taskflow-audit.svg",
+        "assets/images/project-gallery/taskflow-policy.svg",
+        "assets/images/project-gallery/taskflow-openapi.svg"
+      ]
+    }
+  ],
+  "timeline": [
+    [
+      "2021",
+      "A new chapter in Japan",
+      "Adapted to a new environment and developed the discipline, patience and communication habits that now shape my engineering work.",
+      [
+        "Adaptability",
+        "Japanese"
+      ]
+    ],
+    [
+      "2022",
+      "Programming foundations",
+      "Started with algorithms and object-oriented programming, learning to break ambiguous problems into small, testable parts.",
+      [
+        "Algorithms",
+        "OOP",
+        "Git"
+      ]
+    ],
+    [
+      "2023",
+      "Java and relational data",
+      "Went deeper into the Java ecosystem and learned to model business information with normalized relational databases.",
+      [
+        "Java",
+        "MySQL",
+        "SQL"
+      ]
+    ],
+    [
+      "2024",
+      "Building with Spring",
+      "Moved from isolated programs to layered web services with REST contracts, persistence and authentication.",
+      [
+        "Spring Boot",
+        "JPA",
+        "REST"
+      ]
+    ],
+    [
+      "2025",
+      "Production engineering",
+      "Added caching, containers, testing and security practices while turning projects into complete engineering case studies.",
+      [
+        "Redis",
+        "Docker",
+        "Security"
+      ]
+    ],
+    [
+      "NOW",
+      "Systems thinking, job ready",
+      "Studying architecture and operational trade-offs while seeking a backend team where careful engineering creates real value.",
+      [
+        "System Design",
+        "AWS",
+        "Teamwork"
+      ]
+    ]
+  ],
+  "knowledge": [
+    [
+      [
+        "furama",
+        "resort",
+        "booking"
+      ],
+      "Furama is a reservation and operations platform built with Java, Spring Boot, MySQL and Redis. Its main engineering focus is keeping contracts and facility availability consistent through clear service boundaries and transactions."
+    ],
+    [
+      [
+        "security",
+        "authentication",
+        "jwt",
+        "authorization"
+      ],
+      "Linh treats security as an architecture concern: short-lived JWT access tokens, rotating refresh tokens, BCrypt password hashes, role-based policies, request validation and consistent error responses."
+    ],
+    [
+      [
+        "database",
+        "mysql",
+        "data",
+        "index"
+      ],
+      "The projects use normalized MySQL models, explicit foreign keys and transaction boundaries. Indexes follow real access patterns such as booking dates, status and workspace membership."
+    ],
+    [
+      [
+        "technology",
+        "technologies",
+        "stack",
+        "skills",
+        "know"
+      ],
+      "The core stack is Java, Spring Boot, Spring Security, MySQL, JPA and REST. Linh also applies Redis, Docker, JUnit/Mockito and is developing deeper AWS and CI/CD experience."
+    ],
+    [
+      [
+        "performance",
+        "cache",
+        "fast",
+        "scale"
+      ],
+      "Performance work starts with access patterns: pagination, purpose-built indexes, DTO projections, query-plan review and Redis cache-aside where staleness can be controlled."
+    ],
+    [
+      [
+        "about",
+        "linh",
+        "engineer"
+      ],
+      "Phan Tuan Linh is a backend-focused engineer building production-minded Java and Spring systems. His approach prioritizes clear architecture, maintainable code, secure defaults and business value."
+    ]
+  ]
+}
