@@ -2,3 +2,21 @@
 .resume-actions{position:sticky;top:14px;z-index:50;width:210mm;margin:0 auto 12px;display:flex;justify-content:flex-end;pointer-events:none}.download-cv-button{pointer-events:auto;min-height:42px;padding:0 16px;border:1px solid rgba(56,189,248,.38);border-radius:10px;color:#0B1120;background:#38BDF8;font:700 12px var(--mono);letter-spacing:.04em;text-transform:uppercase;box-shadow:0 16px 40px rgba(0,0,0,.28);cursor:pointer}.download-cv-button:hover{filter:brightness(1.06);transform:translateY(-1px)}.identity-head{display:flex;align-items:flex-start;gap:13px;margin-bottom:10px}.identity-head .eyebrow{margin-top:1px}.mark-logo{flex:0 0 auto;width:56px;height:56px;margin:0;border-radius:14px;font-size:15px;letter-spacing:.03em}.identity-head h1{margin-bottom:4px}@media(max-width:900px){.resume-actions{width:calc(100% - 32px);margin-top:12px}.identity-head{align-items:center}.mark-logo{width:52px;height:52px}}
 
 .resume-avatar{flex:0 0 auto;width:62px;height:62px;margin:0;border:1px solid rgba(56,189,248,.42);border-radius:16px;object-fit:cover;object-position:center 38%;box-shadow:0 14px 34px rgba(0,0,0,.32)}.identity-head{align-items:center}.identity-head .eyebrow{margin-top:0}@media(max-width:900px){.resume-avatar{width:56px;height:56px;border-radius:14px}}
+
+
+/* User polish: balanced resume identity. */
+.identity-head{display:grid!important;grid-template-columns:minmax(82px,1fr) minmax(0,1fr);align-items:center;gap:14px}
+.resume-avatar{justify-self:center;width:min(100%,104px)!important;height:auto!important;aspect-ratio:1;border-radius:22px!important}
+.identity-head>div{min-width:0}.identity-head h1{font-size:clamp(27px,3.3vw,34px);line-height:.98;letter-spacing:-.045em;overflow-wrap:anywhere}.hero-card{min-height:auto}.tagline{font-size:13px;line-height:1.55}
+@media(max-width:900px){.identity-head{grid-template-columns:1fr 1fr}.resume-avatar{width:min(100%,96px)!important}.identity-head h1{font-size:30px}}
+@media(max-width:640px){body{padding:0}.resume,.page{width:100%;min-height:auto}.page{display:block;padding:18px}.sidebar,.content{gap:14px}.content{margin-top:14px}.resume-actions{width:calc(100% - 28px)}}
+
+
+/* User polish: resume mobile grids. */
+@media(max-width:640px){.stack-grid,.project-body,.mini-project-grid,.principles-grid{grid-template-columns:1fr!important}.project-item header{display:block}.project-item header span{display:block;margin-top:4px}.timeline li{grid-template-columns:54px 1fr;gap:16px}.timeline:before{left:54px}.timeline div:before{left:-21px}.metrics-grid{grid-template-columns:1fr 1fr}}
+
+
+/* User polish: readable resume name. */
+.identity-head{grid-template-columns:46% 54%!important;gap:12px!important}.identity-head h1{font-size:27px!important;line-height:1.04!important;letter-spacing:-.025em!important;overflow-wrap:normal!important;word-break:normal!important}.resume-avatar{width:min(100%,92px)!important}.tagline{color:var(--muted);font-size:13px;line-height:1.55}
+@media(max-width:900px){.identity-head h1{font-size:26px!important}.resume-avatar{width:min(100%,88px)!important}}
+@media(max-width:640px){.identity-head{grid-template-columns:46% 54%!important}.identity-head h1{font-size:25px!important}.resume-avatar{width:min(100%,86px)!important}}

@@ -31,3 +31,34 @@ body:before{opacity:.92;mask-image:linear-gradient(#000 0 52%,transparent 84%)}b
 
 /* Modal polish v2: stable shell, visible gallery, right-side close button. */
 .case-dialog{position:fixed;inset:50% auto auto 50%;transform:translate(-50%,-50%);width:min(1120px,calc(100vw - 48px));height:min(820px,calc(100dvh - 48px));max-height:calc(100dvh - 48px);margin:0;overflow:hidden}.dialog-shell{position:relative;height:100%;display:grid;grid-template-rows:auto auto minmax(0,1fr);overflow:hidden}.dialog-close{position:absolute;top:18px;right:18px;left:auto;float:none;z-index:6;margin:0}.case-hero{padding:54px 72px 32px 60px}.case-hero h2{max-width:790px;margin-bottom:18px}.case-hero>p{margin-bottom:18px}.case-tabs{position:relative;top:auto;padding:12px 60px;min-height:60px;align-items:center}.case-body{min-height:0;overflow:auto;padding:28px 60px 34px;scrollbar-gutter:stable;overscroll-behavior:contain}.case-panel{min-height:auto}.case-panel[data-panel="2"].active{height:100%}.case-panel[data-panel="2"] .case-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-content:start}.case-panel[data-panel="2"] .case-gallery figure{min-width:0;padding:8px;border-radius:10px}.case-panel[data-panel="2"] .case-gallery img{width:100%;height:clamp(118px,17vh,158px);object-fit:cover}.case-panel[data-panel="2"] .case-gallery figcaption{padding:7px 2px 0;font-size:9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}@media(max-width:900px){.case-dialog{width:calc(100vw - 28px);height:calc(100dvh - 28px);max-height:calc(100dvh - 28px)}.case-hero{padding:48px 56px 28px 28px}.case-tabs{padding-inline:28px}.case-body{padding:24px 28px 30px}.case-panel[data-panel="2"] .case-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.case-panel[data-panel="2"] .case-gallery img{height:150px}}@media(max-width:640px){.case-dialog{width:calc(100vw - 18px);height:calc(100dvh - 18px);max-height:calc(100dvh - 18px)}.dialog-close{top:12px;right:12px}.case-hero{padding:44px 20px 24px}.case-hero h2{font-size:32px}.case-tabs{padding-inline:16px;min-height:54px}.case-body{padding:20px 16px 26px}.case-panel[data-panel="2"] .case-gallery{grid-template-columns:1fr}.case-panel[data-panel="2"] .case-gallery img{height:180px}}
+
+
+/* User polish: avatar logo, project breathing room, mobile modal and back-to-top. */
+.brand-avatar{width:38px;height:38px;border:1px solid color-mix(in srgb,var(--accent) 42%, #ffffff24);border-radius:50%;object-fit:cover;object-position:center 38%;box-shadow:0 0 24px color-mix(in srgb,var(--accent) 28%, transparent),0 10px 28px #0007}
+.brand-ptl:hover .brand-avatar{transform:translateY(-1px);box-shadow:0 0 32px color-mix(in srgb,var(--accent) 40%, transparent),0 14px 34px #0008}
+.project-gallery-preview{padding:34px!important;gap:14px!important;align-content:center}
+.project-gallery-preview img{border-radius:12px!important;object-fit:contain!important;background:#0b111c!important;padding:10px}
+.case-panel[data-panel="2"] .case-gallery figure{padding:12px!important}
+.case-panel[data-panel="2"] .case-gallery img{object-fit:contain!important;background:#0b111c;padding:10px}
+.back-to-top{position:fixed;right:24px;bottom:86px;z-index:32;display:grid;place-items:center;width:44px;height:44px;border:1px solid color-mix(in srgb,var(--accent) 42%, #ffffff18);border-radius:50%;color:var(--accent-ink);background:var(--accent);box-shadow:0 18px 44px #0008,0 0 28px color-mix(in srgb,var(--accent) 26%, transparent);cursor:pointer;opacity:0;pointer-events:none;transform:translateY(10px);transition:.22s;font-size:20px;font-weight:800}
+.back-to-top.visible{opacity:1;pointer-events:auto;transform:none}
+.back-to-top:hover{transform:translateY(-2px)}
+@media(max-width:640px){.brand-avatar{width:34px;height:34px}.project-gallery-preview{grid-template-columns:1fr!important;padding:18px!important;gap:12px!important}.project-gallery-preview img{height:150px!important;padding:8px}.project-gallery-preview .project-metrics{position:static;margin-top:2px;flex-wrap:wrap}.case-dialog{width:100vw!important;height:100dvh!important;max-height:100dvh!important;border-radius:0!important;border-inline:0!important}.dialog-shell{grid-template-rows:auto auto minmax(0,1fr)!important}.case-hero{padding:48px 18px 20px!important;max-height:40dvh;overflow:auto}.case-hero h2{font-size:clamp(26px,9vw,34px)!important;line-height:1.05}.case-hero>p{font-size:13px!important;line-height:1.6}.case-tabs{padding:10px 12px!important;min-height:50px!important}.case-tab{padding:8px 10px}.case-body{padding:18px 14px 88px!important;overflow:auto!important}.case-stat-grid{grid-template-columns:1fr!important}.case-panel[data-panel="2"] .case-gallery img{height:160px!important}.back-to-top{right:18px;bottom:76px;width:42px;height:42px}.assistant-launcher{right:18px;bottom:18px}}
+
+
+/* User polish: mobile modal hard reset. */
+@media(max-width:640px){.case-dialog{inset:0!important;transform:none!important;margin:0!important;width:100vw!important;height:100dvh!important;max-width:100vw!important;max-height:100dvh!important}.dialog-close{top:12px!important;right:12px!important}.assistant-panel{right:12px!important;left:auto!important;width:calc(100vw - 24px)!important}}
+
+
+/* User polish: modal content wrapper. */
+#dialogContent{width:100%;height:100%;min-width:0;display:grid;grid-template-rows:auto auto minmax(0,1fr);overflow:hidden}.case-hero,.case-tabs,.case-body{min-width:0}.case-hero h2,.case-hero p{overflow-wrap:anywhere}.case-tabs{max-width:100%;overflow-x:auto}.case-body{min-width:0}
+@media(max-width:640px){#dialogContent{width:100vw}.case-hero{width:100%!important}.case-hero h2{max-width:100%;overflow-wrap:anywhere}.case-hero .project-tags{max-width:100%;overflow:hidden}.case-hero .tag{white-space:normal}.case-tabs{width:100vw}.case-body{width:100vw}}
+
+
+/* User polish: modal viewport width correction. */
+@media(max-width:640px){.case-dialog{inset:0!important;width:auto!important;height:auto!important;max-width:none!important;max-height:none!important}#dialogContent,.case-tabs,.case-body{width:100%!important}}
+
+
+/* User polish: cleaner hero identity slogan. */
+.hero-identity-wow{overflow:hidden}.signature{max-width:100%;white-space:normal;line-height:1.45!important;letter-spacing:.08em!important;color:#c8d3e1!important}.hero-identity-wow:after{opacity:.26;filter:blur(22px)}
+@media(max-width:640px){.signature{font-size:9px!important}.hero-identity-wow{padding-right:14px}}
