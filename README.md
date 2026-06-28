@@ -1,31 +1,39 @@
-# TuanLinh Portfolio V3
+# TuanLinh Portfolio V3 WOW
 
-Updated portfolio with bilingual English/Vietnamese content, selectable color tones, a larger hero identity block, CodeGym Java certificate placement, and six project illustrations per case study.
+Bản nâng cấp tập trung vào cảm giác mở website phải có “wow” và cá tính riêng của Phan Tuan Linh.
 
 ## Preview
 
-The JSON content must be served over HTTP. A preview server is currently running at:
+Vì nội dung được load từ JSON, nên nên mở bằng local server thay vì double-click trực tiếp file HTML.
 
-- http://127.0.0.1:4289/
+Preview hiện tại:
 
-To run it later from this folder:
+- http://127.0.0.1:4291/
 
-- Python: `python -m http.server 4289`
+Chạy lại sau này từ thư mục này:
+
+- Python: `python -m http.server 4291`
 - Node.js: `npx serve .`
-- VS Code: open `index.html` with Live Server.
+- VS Code: mở thư mục bằng Live Server.
 
-## What changed
+## Điểm đã nâng cấp
 
-- Added English/Vietnamese language switching.
-- Added Blue, Emerald, Amber and Rose color tones with readable foreground contrast.
-- Enlarged the avatar and name block in the hero section.
-- Added the CodeGym Professional Java Programmer Training certificate to the learning journey.
-- Added six illustrated images for each selected project, visible in cards and the case-study Gallery tab.
+- Đổi logo thành `TuanLinh.Profile` và logo cá nhân `PTL`.
+- Thêm backend background: API graph, request flow, Kafka, Redis, PostgreSQL, Docker, Queue, Event.
+- Tăng hiệu ứng “wow”: subtle gradient, glow, glass effect, floating blur, depth.
+- Tăng chiều sâu card: border glow, shadow, hover animation.
+- Avatar/tên nổi bật hơn; tên `Phan Tuan Linh` có hiệu ứng gõ-xóa vòng lặp, dừng 2 giây.
+- Thêm slogan/signature cá nhân để site không còn cảm giác generic.
+- Thêm Engineering Philosophy section.
+- Làm rõ metrics cho từng project ngay trên card và trong modal.
+- Journey Timeline được giữ và tăng visual depth.
+- Modal case study đóng được bằng Esc.
+- Chatbot đổi thành `TL Assistant`.
+- Giữ chức năng chuyển Việt/Anh và đổi tone màu; text/tone vẫn giữ độ tương phản dễ đọc.
 
-## Customize
+## File chính
 
-- Main layout: `index.html`.
-- English/Vietnamese content: `data/content.en.json` and `data/content.vi.json`.
-- Project illustrations: `assets/images/project-gallery/`.
-- Certificate image: `assets/certificates/codegym-java-certificate.png`.
-- Design tokens and responsive styles: `assets/styles.css`.
+- Layout: `index.html`
+- Style/animation: `assets/styles.css`
+- Tương tác: `assets/app.js`
+- Nội dung EN/VI: `data/content.en.json`, `data/content.vi.json`
