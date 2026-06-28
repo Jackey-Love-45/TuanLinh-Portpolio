@@ -487,6 +487,65 @@
         "engineer"
       ],
       "Phan Tuan Linh is a backend-focused engineer building production-minded Java and Spring systems. His approach prioritizes clear architecture, maintainable code, secure defaults and business value."
+    ],
+    [
+      [
+        "projects",
+        "case study",
+        "all"
+      ],
+      "The portfolio contains 7 case studies: Furama, Commerce Order Service, TaskFlow, Smart Parking Management, Primary School Management, Fashion Shoe Shop Manager and Furama Training Modules 3-5."
+    ],
+    [
+      [
+        "parking",
+        "smart parking",
+        "license plate",
+        "slot"
+      ],
+      "Smart Parking Management handles slot status, tickets, license plates, checkout, payment and reports. Its backend focus is clear state transitions, Redis availability and operational audit trails."
+    ],
+    [
+      [
+        "school",
+        "primary school",
+        "student",
+        "teacher"
+      ],
+      "Primary School Management covers teachers, students, classes, timetables, message boards and PDF export. It shows team delivery, JWT authorization and modular school workflows."
+    ],
+    [
+      [
+        "shoe",
+        "shoes",
+        "fashion",
+        "paypal"
+      ],
+      "Fashion Shoe Shop Manager covers product search, cart, checkout, JWT login, Firebase images and PayPal payment history as an end-to-end commerce case."
+    ],
+    [
+      [
+        "resume",
+        "cv",
+        "engineering resume"
+      ],
+      "The old PDF CV is replaced by the Engineering Resume inside resume/. It keeps the same portfolio design system and focuses on backend thinking, projects, stack and learning journey."
+    ],
+    [
+      [
+        "ready",
+        "job",
+        "hire",
+        "work"
+      ],
+      "Linh is job ready through Java/Spring fundamentals, practical management systems, clear database thinking, secure defaults, fast learning and discipline shaped by Japan experience."
+    ],
+    [
+      [
+        "contact",
+        "email"
+      ],
+      "You can contact Linh at skyfreedom45@gmail.com. The portfolio positions him for Java Backend Developer work with REST APIs, Spring Boot, MySQL, JWT and systems thinking."
     ]
   ]
 }

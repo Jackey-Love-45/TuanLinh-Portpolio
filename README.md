@@ -37,3 +37,12 @@ Chạy lại sau này từ thư mục này:
 - Style/animation: `assets/styles.css`
 - Tương tác: `assets/app.js`
 - Nội dung EN/VI: `data/content.en.json`, `data/content.vi.json`
+
+
+## Minimal content patch
+
+- Giữ nguyên giao diện WOW gốc.
+- Chỉ đổi link CV PDF cũ sang `resume/index.html`.
+- Chỉ thay các câu CTA/footer theo yêu cầu.
+- Bổ sung nội dung TL Assistant, không đổi layout assistant.
+- Giữ các dự án đã bổ sung trong bản WOW: Smart Parking, Primary School, Shoe Shop và các case study hiện có.

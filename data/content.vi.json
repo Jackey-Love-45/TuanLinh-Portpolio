@@ -1,7 +1,7 @@
 {
   "metrics": [
     [
-      "06+",
+      "07+",
       "Dự án theo tư duy production"
     ],
     [
@@ -371,6 +371,314 @@
         "assets/images/project-gallery/taskflow-policy.svg",
         "assets/images/project-gallery/taskflow-openapi.svg"
       ]
+    },
+    {
+      "id": "smart-parking",
+      "name": "Smart Parking Management",
+      "subtitle": "Hệ thống quản lý bãi đỗ xe thông minh cho trạng thái chỗ trống, vòng đời vé, thanh toán và báo cáo quản trị.",
+      "problem": "Bãi đỗ xe cần nhìn thấy trạng thái chỗ trống, lịch sử vé và thanh toán chính xác thay vì đối soát thủ công.",
+      "goal": "Tạo backend vận hành đáng tin cậy cho check-in, cập nhật chỗ, checkout và dashboard quản lý.",
+      "stack": [
+        "Java",
+        "Spring Boot",
+        "REST API",
+        "MySQL",
+        "Redis",
+        "Docker"
+      ],
+      "architecture": [
+        "Gate Client",
+        "REST API",
+        "Ticket Service",
+        "Slot Service",
+        "Redis Cache",
+        "MySQL"
+      ],
+      "metrics": [
+        [
+          "18",
+          "Endpoints"
+        ],
+        [
+          "4",
+          "Core flows"
+        ],
+        [
+          "Realtime",
+          "Slot status"
+        ]
+      ],
+      "database": "The model separates vehicles, tickets, parking slots, payments and audit history. Indexed ticket status and slot state support fast admin queries.",
+      "api": [
+        [
+          "POST",
+          "/api/v1/tickets/check-in"
+        ],
+        [
+          "PATCH",
+          "/api/v1/slots/{id}/status"
+        ],
+        [
+          "POST",
+          "/api/v1/tickets/{id}/checkout"
+        ],
+        [
+          "GET",
+          "/api/v1/reports/daily"
+        ]
+      ],
+      "security": [
+        "Role-based access for admin and staff",
+        "Validated ticket state transitions",
+        "Audit trail for payment and slot changes",
+        "Consistent error responses for invalid operations"
+      ],
+      "performance": [
+        "Redis cache for current slot availability",
+        "Pagination for ticket history",
+        "Indexes on ticket status, plate number and check-in time",
+        "DTO projections for dashboard views"
+      ],
+      "lesson": "Bài học chính: hệ thống vận hành cần state transition rõ ràng; một vé xe không nên rơi vào trạng thái mơ hồ.",
+      "gallery": [
+        "assets/images/project-gallery/smart-parking-1.svg",
+        "assets/images/project-gallery/smart-parking-2.svg",
+        "assets/images/project-gallery/smart-parking-3.svg",
+        "assets/images/project-gallery/smart-parking-4.svg",
+        "assets/images/project-gallery/smart-parking-5.svg",
+        "assets/images/project-gallery/smart-parking-6.svg"
+      ]
+    },
+    {
+      "id": "primary-school",
+      "name": "Primary School Management",
+      "subtitle": "Hệ thống quản trị trường tiểu học theo nhóm: giáo viên, học sinh, lớp học, thời khóa biểu, bảng tin và xuất PDF.",
+      "problem": "Vận hành trường học có nhiều vai trò và workflow lặp lại, dễ khó kiểm soát nếu thiếu phân quyền và module rõ ràng.",
+      "goal": "Hỗ trợ nhân sự nhà trường bằng các chức năng quản lý có cấu trúc, phân quyền và báo cáo xuất được.",
+      "stack": [
+        "Java",
+        "Spring Boot",
+        "Angular",
+        "JWT",
+        "Firebase",
+        "PDF Export"
+      ],
+      "architecture": [
+        "Angular Client",
+        "REST API",
+        "JWT Policy",
+        "School Services",
+        "Firebase",
+        "MySQL"
+      ],
+      "metrics": [
+        [
+          "12",
+          "Team members"
+        ],
+        [
+          "6",
+          "Modules"
+        ],
+        [
+          "PDF",
+          "Export"
+        ]
+      ],
+      "database": "Teachers, students, classes and timetables are separated into relational modules. Message boards and image references are managed through controlled admin workflows.",
+      "api": [
+        [
+          "POST",
+          "/api/v1/auth/login"
+        ],
+        [
+          "GET",
+          "/api/v1/classes/{id}/students"
+        ],
+        [
+          "POST",
+          "/api/v1/message-boards"
+        ],
+        [
+          "GET",
+          "/api/v1/reports/timetable.pdf"
+        ]
+      ],
+      "security": [
+        "JWT authentication for protected resources",
+        "Role-based administration permissions",
+        "Validated teacher/student management actions",
+        "Controlled image upload references"
+      ],
+      "performance": [
+        "Paginated student and class lists",
+        "Optimized dashboard queries",
+        "Separated media storage from relational data",
+        "PDF export generated on demand"
+      ],
+      "lesson": "Làm việc trong team lớn giúp tôi thấy ranh giới, đặt tên và quy ước chung quan trọng không kém code.",
+      "gallery": [
+        "assets/images/project-gallery/primary-school-1.svg",
+        "assets/images/project-gallery/primary-school-2.svg",
+        "assets/images/project-gallery/primary-school-3.svg",
+        "assets/images/project-gallery/primary-school-4.svg",
+        "assets/images/project-gallery/primary-school-5.svg",
+        "assets/images/project-gallery/primary-school-6.svg"
+      ]
+    },
+    {
+      "id": "shoe-shop",
+      "name": "Fashion Shoe Shop Manager",
+      "subtitle": "Dự án quản lý shop giày thời trang với tìm kiếm sản phẩm, giỏ hàng, checkout, đăng nhập và lịch sử thanh toán.",
+      "problem": "Shop online cần product discovery, cart, session bảo mật và lịch sử đơn hàng/thanh toán nhất quán.",
+      "goal": "Xây flow thương mại điện tử end-to-end kết nối Angular UI với Spring Boot API và MySQL.",
+      "stack": [
+        "Angular",
+        "Spring Boot",
+        "JWT",
+        "MySQL",
+        "Firebase",
+        "PayPal"
+      ],
+      "architecture": [
+        "Angular Storefront",
+        "REST API",
+        "JWT Security",
+        "Order Service",
+        "Firebase Images",
+        "MySQL"
+      ],
+      "metrics": [
+        [
+          "7",
+          "Core flows"
+        ],
+        [
+          "JWT",
+          "Security"
+        ],
+        [
+          "PayPal",
+          "Payment"
+        ]
+      ],
+      "database": "Products, carts, users, orders and payment history are modeled separately to keep checkout behavior understandable and extendable.",
+      "api": [
+        [
+          "GET",
+          "/api/v1/products?keyword="
+        ],
+        [
+          "POST",
+          "/api/v1/cart/items"
+        ],
+        [
+          "POST",
+          "/api/v1/checkout"
+        ],
+        [
+          "GET",
+          "/api/v1/payments/history"
+        ]
+      ],
+      "security": [
+        "JWT for user sessions",
+        "Ownership checks for cart and orders",
+        "Validation for checkout operations",
+        "Admin-only product management"
+      ],
+      "performance": [
+        "Product search pagination",
+        "Firebase media URLs instead of database blobs",
+        "Indexed order history by customer",
+        "Clear API boundaries for cart operations"
+      ],
+      "lesson": "E-commerce cho tôi thấy backend correctness hiện ra ngay qua tổng tiền giỏ hàng, checkout và lịch sử thanh toán.",
+      "gallery": [
+        "assets/images/project-gallery/shoe-shop-1.svg",
+        "assets/images/project-gallery/shoe-shop-2.svg",
+        "assets/images/project-gallery/shoe-shop-3.svg",
+        "assets/images/project-gallery/shoe-shop-4.svg",
+        "assets/images/project-gallery/shoe-shop-5.svg",
+        "assets/images/project-gallery/shoe-shop-6.svg"
+      ]
+    },
+    {
+      "id": "furama-training-modules",
+      "name": "Furama Training Modules 3-5",
+      "subtitle": "Lộ trình học tăng dần từ MySQL/JSP/Servlet CRUD tới Spring Boot và tích hợp Angular.",
+      "problem": "Học backend cần xây lại cùng một domain qua nhiều kiểu kiến trúc ngày càng trưởng thành.",
+      "goal": "Dùng domain Furama để luyện database, CRUD, Spring Boot và giao tiếp Angular-backend.",
+      "stack": [
+        "MySQL",
+        "JSP/Servlet",
+        "JDBC",
+        "Spring Boot",
+        "Angular",
+        "Bootstrap"
+      ],
+      "architecture": [
+        "JSP Client",
+        "Servlet/JDBC",
+        "Spring MVC",
+        "Spring Boot",
+        "Angular",
+        "MySQL"
+      ],
+      "metrics": [
+        [
+          "3",
+          "Modules"
+        ],
+        [
+          "CRUD",
+          "Coverage"
+        ],
+        [
+          "Fullstack",
+          "Practice"
+        ]
+      ],
+      "database": "The modules practice customer, staff, service and contract data with relational links and CRUD-oriented access patterns.",
+      "api": [
+        [
+          "GET",
+          "/facilities"
+        ],
+        [
+          "POST",
+          "/customers"
+        ],
+        [
+          "POST",
+          "/contracts"
+        ],
+        [
+          "GET",
+          "/api/furama/contracts"
+        ]
+      ],
+      "security": [
+        "Form validation across CRUD flows",
+        "Clear separation between admin and user actions",
+        "Safer request handling through controller/service layers",
+        "Progressive improvement from servlet to Spring patterns"
+      ],
+      "performance": [
+        "Pagination for list views",
+        "Database connection handling through JDBC/JPA patterns",
+        "Reduced repeated query logic by moving toward services",
+        "Bootstrap UI for fast operational screens"
+      ],
+      "lesson": "Xây lại cùng domain qua nhiều module giúp tôi hiểu vì sao layered architecture quan trọng khi dự án lớn lên.",
+      "gallery": [
+        "assets/images/project-gallery/furama-modules-1.svg",
+        "assets/images/project-gallery/furama-modules-2.svg",
+        "assets/images/project-gallery/furama-modules-3.svg",
+        "assets/images/project-gallery/furama-modules-4.svg",
+        "assets/images/project-gallery/furama-modules-5.svg",
+        "assets/images/project-gallery/furama-modules-6.svg"
+      ]
     }
   ],
   "timeline": [
@@ -493,6 +801,71 @@
         "kỹ sư"
       ],
       "Phan Tuan Linh là backend-focused engineer xây hệ thống Java và Spring theo tư duy production. Cách làm ưu tiên kiến trúc rõ, code dễ bảo trì, bảo mật mặc định và giá trị kinh doanh."
+    ],
+    [
+      [
+        "projects",
+        "dự án",
+        "case study",
+        "tất cả"
+      ],
+      "Portfolio hiện có 7 case study: Furama, Commerce Order Service, TaskFlow, Smart Parking Management, Primary School Management, Fashion Shoe Shop Manager và Furama Training Modules 3-5."
+    ],
+    [
+      [
+        "parking",
+        "bãi xe",
+        "đỗ xe",
+        "biển số",
+        "smart parking"
+      ],
+      "Smart Parking Management quản lý chỗ đỗ, vé xe, biển số, checkout, thanh toán và báo cáo. Điểm backend chính là state transition rõ ràng, Redis cho trạng thái chỗ trống và audit cho thay đổi vận hành."
+    ],
+    [
+      [
+        "school",
+        "trường",
+        "tiểu học",
+        "học sinh",
+        "giáo viên"
+      ],
+      "Primary School Management quản lý giáo viên, học sinh, lớp học, thời khóa biểu, bảng tin và xuất PDF. Dự án thể hiện khả năng làm team, phân quyền JWT và chia module nghiệp vụ."
+    ],
+    [
+      [
+        "shoe",
+        "giày",
+        "shop",
+        "thời trang",
+        "paypal"
+      ],
+      "Fashion Shoe Shop Manager xử lý tìm kiếm sản phẩm, giỏ hàng, checkout, đăng nhập JWT, Firebase image và lịch sử thanh toán PayPal. Đây là case e-commerce end-to-end."
+    ],
+    [
+      [
+        "resume",
+        "cv",
+        "hồ sơ",
+        "engineering resume"
+      ],
+      "CV PDF cũ được thay bằng Engineering Resume trong thư mục resume/. Resume giữ cùng design system với portfolio và tập trung vào tư duy backend, dự án, stack và hành trình học tập."
+    ],
+    [
+      [
+        "ready",
+        "job",
+        "đi làm",
+        "sẵn sàng"
+      ],
+      "Linh sẵn sàng đi làm nhờ nền Java/Spring, các dự án quản lý thực tế, tư duy database rõ ràng, bảo mật mặc định, khả năng học nhanh và kỷ luật từ trải nghiệm tại Nhật."
+    ],
+    [
+      [
+        "contact",
+        "email",
+        "liên hệ"
+      ],
+      "Bạn có thể liên hệ Linh qua skyfreedom45@gmail.com. Portfolio nhấn mạnh vai trò Java Backend Developer, REST API, Spring Boot, MySQL, JWT và tư duy hệ thống."
     ]
   ]
 }
